@@ -1,2 +1,12 @@
-<h1>Hello World</h1>
-<p>See Me in views/static/index.html.erb</p>
+<h1>Hello There!</h1>
+<p>Please enter your URL below.</p>
+<form action="/urls" method="post">
+	Enter URL:
+	<input type="text" name="long_url" placeholder="Your link here">
+	<input type="submit" value="Shorten!">
+</form>
+
+<p>This is your short link:</p>
+<% if @url_obj %>
+	<a href=<%= @url_obj.short_url %>><%= @url_obj.short_url %></a>
+<% end %>
