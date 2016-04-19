@@ -1,4 +1,4 @@
-<h1>Shortn: Shrtnin Evrythng</h1>
+<h1 class="">Shortn: Shrtnin Evrythng</h1>
 <p>Please paste your URL below.</p>
 <form action="/urls" method="post">
 	<input id="input_box" type="text" name="long_url" placeholder="Paste your link here to shortn it!">
@@ -6,6 +6,7 @@
 </form>
 
 <% if @url_obj %>
+	<div id="rectangle"></div>
 	<h3 id="short_link_label">This is your shortn'd link:</h3>
 	<a id="short_link_actual" href=<%= @url_obj.short_url %>>http://www.shor.tn/<%= @url_obj.short_url %></a>
 <% end %>
