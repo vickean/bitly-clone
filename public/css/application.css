@@ -79,6 +79,18 @@ form {
   	margin-left: -198px;
 }
 
+#invalid_url_message {
+	color: white;
+	font-family: 'Roboto Slab', serif;
+	text-align: center;
+	font-size: 180%;
+	position: fixed;
+  	top: 50%;
+  	left: 50%;
+	margin-top: 10px;
+  	margin-left: -409px;
+}
+
 #rectangle{
     width:500px;
     height:55px;

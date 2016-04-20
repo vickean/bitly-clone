@@ -5,8 +5,4 @@
 	<input id="submit_button" type="submit" value="Shortn it!">
 </form>
 
-<% if @url_obj %>
-	<div id="rectangle"></div>
-	<h3 id="short_link_label">This is your shortn'd link:</h3>
-	<a id="short_link_actual" href=<%= @url_obj.short_url %>>http://www.shor.tn/<%= @url_obj.short_url %></a>
-<% end %>
+<h3 id="invalid_url_message"> Sorry. Your URL is invalid. Please try again with a valid URL.</h3>

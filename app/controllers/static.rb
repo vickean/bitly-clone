@@ -4,10 +4,18 @@ end
 
 post '/urls' do
   url = Url.shorten
-  @url_obj = Url.create(long_url: params[:long_url], short_url: url )
-  erb :"static/index"
+  @url_obj = Url.new(long_url: params[:long_url], short_url: url )
+  if @url_obj.save
+    @url_obj
+    erb :"static/index"
+  else
+    redirect '/invalid'
+  end
 end
 
+get '/invalid' do
+  erb :"static/invalidurl"
+end
 
 get '/:short_url' do
   a = Url.all
@@ -16,5 +24,5 @@ get '/:short_url' do
   count += 1
   b.counter = count
   b.save
-  redirect "http://" + b.long_url
+  redirect b.long_url
 end
