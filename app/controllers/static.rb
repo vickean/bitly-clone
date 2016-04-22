@@ -3,8 +3,7 @@ get '/' do
 end
 
 post '/urls' do
-  @url_obj = Url.new(long_url: params[:long_url])
-  @url_obj.save
+  @url_obj = Url.create(long_url: params[:long_url])
   if @url_obj.save
     @url_obj
     erb :"static/index"
@@ -22,7 +21,6 @@ get '/:short_url' do
   b = a.find_by(short_url: params[:short_url])
   count = b.counter.to_i
   count += 1
-  b.counter = count
-  b.save
+  b.update(counter: count)
   redirect b.long_url
 end
