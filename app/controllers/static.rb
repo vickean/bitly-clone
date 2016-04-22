@@ -3,8 +3,8 @@ get '/' do
 end
 
 post '/urls' do
-  url = Url.shorten
-  @url_obj = Url.new(long_url: params[:long_url], short_url: url )
+  @url_obj = Url.new(long_url: params[:long_url])
+  @url_obj.save
   if @url_obj.save
     @url_obj
     erb :"static/index"
